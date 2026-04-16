@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "436686686019",
+    "project_id": "veon-fashion-store",
+    "storage_bucket": "veon-fashion-store.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436686686019:android:9cd9c3dd9587d449eed1f6",
+        "android_client_info": {
+          "package_name": "com.example.fashion_store_mobile_application_project_01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436686686019-1j752kv7kdedv5ep2cjkm8hjjm1udg00.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fashion_store_mobile_application_project_01",
+            "certificate_hash": "b074ed7766d103307c1568842054f7bc23bfa304"
+          }
+        },
+        {
+          "client_id": "436686686019-feto325bd6flj7s7g2aj16smb9niu5hm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2Oe2PNNm9DfYm0q2VTmalPklaz4Yzo9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436686686019-feto325bd6flj7s7g2aj16smb9niu5hm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "436686686019-q56ds6f1fdbdi8gr40912aa1n59ubag6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fashionStoreMobileApplicationProject01"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
