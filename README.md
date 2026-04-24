@@ -1,109 +1,186 @@
 <div align="center">
 
-<br/>
+<br />
 
-```
-██╗   ██╗███████╗ ██████╗ ███╗   ██╗
-██║   ██║██╔════╝██╔═══██╗████╗  ██║
-██║   ██║█████╗  ██║   ██║██╔██╗ ██║
-╚██╗ ██╔╝██╔══╝  ██║   ██║██║╚██╗██║
- ╚████╔╝ ███████╗╚██████╔╝██║ ╚████║
-  ╚═══╝  ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝
-```
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,50:4f46e5,100:7c3aed&height=200&section=header&text=VEON&fontSize=80&fontColor=ffffff&fontAlignY=38&desc=Modern%20Flutter%20Fashion%20E-Commerce&descAlignY=58&descSize=20&descColor=c4b5fd" width="100%"/>
 
-### **Modern Flutter Fashion E-Commerce App**
+<br />
 
-*A sleek UI with a premium shopping experience — crafted for fashion-forward users.*
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
+[![GetX](https://img.shields.io/badge/GetX-8B5CF6?style=for-the-badge&logo=flutter&logoColor=white)](https://pub.dev/packages/get)
 
-<br/>
+<br />
 
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
-![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white)
+[![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white)](https://www.android.com)
+[![iOS](https://img.shields.io/badge/iOS-000000?style=flat-square&logo=apple&logoColor=white)](https://www.apple.com/ios)
+[![Web](https://img.shields.io/badge/Web-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](#)
+[![Windows](https://img.shields.io/badge/Windows-0078D4?style=flat-square&logo=windows&logoColor=white)](#)
+[![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white)](#)
+[![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)](#)
 
-![Status](https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge)
-![Frontend](https://img.shields.io/badge/Frontend-Complete-brightgreen?style=for-the-badge)
-![Backend](https://img.shields.io/badge/Backend-In%20Progress-yellow?style=for-the-badge)
+<br />
 
-<br/>
+![UI](https://img.shields.io/badge/UI%20%2F%20Frontend-✅%20Complete-22c55e?style=flat-square)
+![Backend](https://img.shields.io/badge/Firebase%20Backend-🔧%20In%20Progress-f59e0b?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-a855f7?style=flat-square)
+
+<br />
+
+> **VEON** is a premium fashion e-commerce app built with Flutter.  
+> Browse curated collections, manage your cart, and checkout with ease — all wrapped in a sleek, modern UI.
+
+<br />
 
 </div>
 
 ---
 
-## 📱 Overview
+## 📌 Table of Contents
 
-**VEON** is a cross-platform fashion e-commerce application built with **Flutter** and powered by **Firebase**. It delivers a seamless, high-end shopping experience with a modern UI tailored for fashion enthusiasts. Featuring a dark-themed home, curated product catalog, wishlist, cart management, and smooth checkout — VEON makes fashion shopping feel effortless and premium.
+- [Overview](#-overview)
+- [App Screens](#️-app-screens)
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [Project Structure](#-project-structure)
+- [Tech Stack](#️-tech-stack)
+- [Getting Started](#-getting-started)
+- [Firebase Setup](#-firebase-setup)
+- [Roadmap](#️-roadmap)
+- [Contributing](#-contributing)
+- [Author](#-author)
 
-> ⚠️ **Development Status:** UI / Frontend is complete. Firebase backend integration is currently in progress.
+---
+
+## 🌟 Overview
+
+**VEON** is a cross-platform fashion e-commerce application engineered with Flutter and Firebase. It follows a **feature-first clean architecture** with a clear separation of concerns across `controllers`, `models`, and `screens`. The app delivers a refined, high-performance shopping experience from onboarding through to payment confirmation.
+
+```
+"Discover Limitless Choices and Unmatched Convenience"
+```
 
 ---
 
 ## 🖼️ App Screens
 
-### 🚀 Onboarding
-| Choose Your Product | Select Payment Method | Doorstep Delivery |
-|---|---|---|
-| Welcome to a world of limitless choices | Seamless transaction experience | Swift, secure & contactless delivery |
+<details>
+<summary><b>🚀 Onboarding  (3 Slides)</b></summary>
 
-### 🔐 Authentication
-| Sign In | Sign Up |
+| Slide | Title | Description |
+|:---:|---|---|
+| 1 | **Choose Your Product** | Welcome to a World of Limitless Choices |
+| 2 | **Select Payment Method** | Seamless Transactions, Your Convenience is Our Priority |
+| 3 | **Deliver at Your Doorstep** | Swift, Secure, and Contactless Delivery |
+
+</details>
+
+<details>
+<summary><b>🔐 Authentication</b></summary>
+
+| Screen | Details |
 |---|---|
-| Email & Password login | Full registration: First/Last name, username, phone |
-| Remember Me option | Terms & Privacy agreement |
-| Google & Facebook OAuth | Google & Facebook OAuth |
+| **Sign In** | Email & password · Remember Me · Forgot Password · Google & Facebook OAuth |
+| **Sign Up** | First/Last name · Username · Email · Phone · Password · Terms & Privacy |
 
-### 🏠 Main Screens
-| Home | Store | Wishlist | Profile |
-|---|---|---|---|
-| Personalised greeting | Men / Women / Accessories / Gift Cards tabs | Saved products grid | User info & avatar |
-| Search bar | Product grid with discount badges | Heart toggle per product | My Addresses, Cart, Orders |
-| Category icons (T-Shirt, Pants, Shoes, Accessories, Dress) | — | Quick add to cart | Bank Account & Coupons |
-| Banner carousel | — | — | Notifications & Privacy settings |
-| Popular Products section | — | — | Firebase Cloud sync & Geolocation |
+</details>
 
-### 🛍️ Shopping Flow
-| Product Details | Cart | Order Review | Payment Success |
-|---|---|---|---|
-| Multi-image gallery | Item list with quantity control | Promo code input | Animated success badge |
-| Star rating & reviews count | Per-item pricing | Subtotal + Shipping + Tax breakdown | Shipping confirmation message |
-| Colour & Size selector (S / M / L / XL / XXL) | Total at bottom | PayPal payment mode | Continue button |
-| Discount badge (e.g. 25% off) | Checkout CTA | Shipping address with change option | — |
-| Add to Cart button | — | Final Checkout CTA | — |
+<details>
+<summary><b>🏠 Core App Screens</b></summary>
+
+| Screen | Key Elements |
+|---|---|
+| **Home** | Personalised greeting · Search bar · Category icons (T-Shirt, Pants, Shoes, Accessories, Dress) · Banner carousel · Popular Products |
+| **Store** | Tab filters: Men · Women · Accessories · Gift Cards · Product grid with discount badges |
+| **Wishlist** | Saved items grid · Heart toggle · Quick add-to-cart |
+| **Profile / Account** | Avatar · My Addresses · My Cart · My Orders · Bank Account · My Coupons · Notifications · Privacy · Firebase Sync · Geolocation toggle |
+
+</details>
+
+<details>
+<summary><b>🛒 Shopping Flow</b></summary>
+
+| Screen | Key Elements |
+|---|---|
+| **Product Details** | Multi-angle gallery · Star rating & review count · Discount badge · Colour picker · Size selector (S / M / L / XL / XXL) · Add to Cart |
+| **Cart** | Item list · Quantity controls · Per-item pricing · Checkout CTA |
+| **Order Review** | Promo code · Subtotal / Shipping / Tax breakdown · Payment mode (PayPal) · Shipping address · Final checkout |
+| **Payment Success** | Animated badge · Confirmation message · Continue button |
+
+</details>
 
 ---
 
 ## ✨ Features
 
-- 🚀 **3-Step Onboarding** — Illustrated walkthrough highlighting core app benefits
-- 🔐 **Authentication** — Email/password login & registration + Google / Facebook OAuth
-- 🏠 **Home Feed** — Personalised greeting, search bar, category quick-access, banner carousel & popular products
-- 🛍️ **Store** — Browse by Men, Women, Accessories & Gift Cards with discount badges
-- ❤️ **Wishlist** — Save favourite items with one tap
-- 📦 **Product Details** — Multi-angle image gallery, star ratings, colour picker & size selector
-- 🛒 **Cart** — Add, remove and adjust item quantities with live pricing
-- 🧾 **Order Review** — Promo code, itemised pricing (subtotal / shipping / tax), payment & shipping address
-- ✅ **Payment Success** — Clean order confirmation screen
-- 👤 **Profile** — Manage addresses, orders, bank account, coupons, notifications & account privacy
-- ☁️ **Firebase Sync** — Cloud data upload & geolocation-based recommendations *(in progress)*
-- 📲 **Cross-Platform** — Android · iOS · Web · Windows · macOS · Linux
+```
+✅ 3-step illustrated onboarding
+✅ Email / Password authentication
+✅ Google & Facebook OAuth sign-in
+✅ Home feed with personalised greeting & banner carousel
+✅ Category-based product browsing
+✅ Product detail view with image gallery & variant selection
+✅ Colour & size selector (S / M / L / XL / XXL)
+✅ Discount badges & pricing
+✅ Wishlist with heart toggle
+✅ Shopping cart with quantity management
+✅ Promo code support at checkout
+✅ Order review with itemised cost breakdown
+✅ PayPal payment integration (UI complete)
+✅ Payment success confirmation
+✅ User profile & account management
+✅ Address management
+✅ Order tracking (in-progress & completed)
+✅ Coupon management
+✅ Push notification settings
+✅ Account privacy controls
+🔧 Firebase Cloud data sync (in progress)
+🔧 Geolocation-based recommendations (in progress)
+```
 
 ---
 
-## 🛠️ Tech Stack
+## 🏗️ Architecture
 
-| Layer | Technology |
-|---|---|
-| **Framework** | Flutter |
-| **Language** | Dart |
-| **Backend / Database** | Firebase Firestore *(in progress)* |
-| **Authentication** | Firebase Auth + Google & Facebook OAuth *(in progress)* |
-| **Storage** | Firebase Storage *(in progress)* |
-| **State Management** | *(Provider / Riverpod / Bloc — update as applicable)* |
-| **Payments** | PayPal |
-| **Platforms** | Android · iOS · Web · Windows · macOS · Linux |
+VEON follows a **Feature-First Architecture** — each feature is fully self-contained with its own `controllers`, `models`, and `screens`.  
+This pattern improves scalability, testability, and team collaboration.
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                       VEON APP                          │
+│                                                         │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │ COMMON       │  │ DATA         │  │ UTILS        │  │
+│  │ • Styles     │  │ • Repos      │  │ • Helpers    │  │
+│  │ • Widgets    │  │ • Services   │  │ • Constants  │  │
+│  └──────────────┘  └──────────────┘  └──────────────┘  │
+│                                                         │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │                   FEATURES                      │   │
+│  │                                                 │   │
+│  │  ┌─────────────────┐  ┌───────────────────┐   │   │
+│  │  │ AUTHENTICATION  │  │ PERSONALIZATION   │   │   │
+│  │  │ • controllers   │  │ • controllers     │   │   │
+│  │  │ • models        │  │ • models          │   │   │
+│  │  │ • screens       │  │ • screens         │   │   │
+│  │  └─────────────────┘  └───────────────────┘   │   │
+│  │                                                 │   │
+│  │  ┌──────────────────────────────────────────┐  │   │
+│  │  │                  SHOP                    │  │   │
+│  │  │  controllers │ models │ screens:         │  │   │
+│  │  │  all_products · brand · cart · checkout  │  │   │
+│  │  │  home · order · product_details          │  │   │
+│  │  │  product_reviews · store                 │  │   │
+│  │  │  sub_category · wishlist                 │  │   │
+│  │  └──────────────────────────────────────────┘  │   │
+│  └─────────────────────────────────────────────────┘   │
+│                                                         │
+│  ┌──────────────┐  ┌──────────────┐                    │
+│  │ LOCALIZATION │  │ FIREBASE     │                    │
+│  └──────────────┘  └──────────────┘                    │
+└─────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -111,34 +188,78 @@
 
 ```
 veon-app/
-├── android/              # Android platform code
-├── ios/                  # iOS platform code
-├── linux/                # Linux platform code
-├── macos/                # macOS platform code
-├── web/                  # Web platform code
-├── windows/              # Windows platform code
-├── assets/               # Images, fonts & static assets
-├── lib/
-│   ├── models/           # Data models (Product, User, Order, Cart...)
-│   ├── screens/
-│   │   ├── onboarding/   # 3-step onboarding slides
-│   │   ├── auth/         # Sign In & Sign Up
-│   │   ├── home/         # Home feed
-│   │   ├── store/        # Store with category tabs
-│   │   ├── wishlist/     # Wishlist
-│   │   ├── product/      # Product detail
-│   │   ├── cart/         # Cart
-│   │   ├── checkout/     # Order review & payment success
-│   │   └── profile/      # Account & settings
-│   ├── widgets/          # Reusable UI components
-│   ├── services/         # Firebase & API services
-│   ├── providers/        # State management
-│   └── main.dart         # App entry point
-├── test/                 # Unit & widget tests
-├── firebase.json         # Firebase configuration
-├── pubspec.yaml          # Flutter dependencies
-└── README.md
+│
+├── android/                        # Android platform
+├── ios/                            # iOS platform
+├── web/                            # Web platform
+├── windows/                        # Windows platform
+├── linux/                          # Linux platform
+├── macos/                          # macOS platform
+├── assets/                         # Images, fonts, icons
+│
+└── lib/
+    │
+    ├── common/
+    │   ├── styles/
+    │   │   ├── rounded_container.dart
+    │   │   ├── shadows.dart
+    │   │   └── spacing_styles.dart
+    │   └── widgets/                # Reusable UI components
+    │
+    ├── data/                       # Repositories & data sources
+    │
+    ├── features/
+    │   │
+    │   ├── authentication/         # 🔐 Auth Feature
+    │   │   ├── controllers/        #   Login, Register, Forgot Password
+    │   │   ├── models/             #   User model
+    │   │   └── screens/            #   Sign In, Sign Up screens
+    │   │
+    │   ├── personalization/        # 👤 Profile Feature
+    │   │   ├── controllers/        #   Profile, Address, Settings
+    │   │   ├── models/             #   Address, Coupon models
+    │   │   └── screens/            #   Profile, Address, Settings screens
+    │   │
+    │   └── shop/                   # 🛍️ Shop Feature
+    │       ├── controllers/        #   Home, Cart, Checkout, Wishlist
+    │       ├── models/             #   Product, Cart, Order, Brand
+    │       └── screens/
+    │           ├── all_products/   #   Full product listing
+    │           ├── brand/          #   Brand-specific page
+    │           ├── cart/           #   Cart screen
+    │           ├── checkout/       #   Order review + payment success
+    │           ├── home/           #   Home feed
+    │           ├── order/          #   Order tracking
+    │           ├── product_details/#   Product detail + gallery
+    │           ├── product_reviews/#   Reviews & ratings
+    │           ├── store/          #   Store with category tabs
+    │           ├── sub_category/   #   Sub-category browsing
+    │           └── wishlist/       #   Saved items
+    │
+    ├── localization/               # 🌍 Multi-language support
+    ├── utils/                      # 🔧 Helpers, constants, validators
+    │
+    ├── app.dart                    # App root widget
+    ├── firebase_options.dart       # Firebase config (auto-generated)
+    ├── main.dart                   # Entry point
+    └── navigation_menu.dart        # Bottom navigation controller
 ```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| **UI Framework** | Flutter | Cross-platform UI |
+| **Language** | Dart | App logic |
+| **State Management** | GetX | Controllers, routing, DI |
+| **Authentication** | Firebase Auth | Email, Google, Facebook |
+| **Database** | Cloud Firestore | Products, orders, users |
+| **Storage** | Firebase Storage | Product images, avatars |
+| **Backend Config** | firebase_options.dart | Multi-platform Firebase |
+| **Payments** | PayPal | Checkout integration |
+| **Localisation** | Flutter Localizations | Multi-language support |
 
 ---
 
@@ -146,52 +267,61 @@ veon-app/
 
 ### Prerequisites
 
-- [Flutter SDK](https://flutter.dev/docs/get-started/install) `>=3.0.0`
-- [Dart SDK](https://dart.dev/get-dart) (bundled with Flutter)
-- [Firebase CLI](https://firebase.google.com/docs/cli)
-- Android Studio / Xcode (for mobile builds)
+| Tool | Version |
+|---|---|
+| Flutter SDK | `>= 3.0.0` |
+| Dart SDK | Bundled with Flutter |
+| Firebase CLI | Latest |
+| Android Studio / Xcode | For mobile targets |
 
 ### Installation
 
 **1. Clone the repository**
-
 ```bash
 git clone https://github.com/The-Prabhath/veon-app.git
 cd veon-app
 ```
 
 **2. Install dependencies**
-
 ```bash
 flutter pub get
 ```
 
 **3. Configure Firebase**
-
 ```bash
 firebase login
 flutterfire configure
 ```
 
-> 📌 Place `google-services.json` → `android/app/`  
-> 📌 Place `GoogleService-Info.plist` → `ios/Runner/`
+> 📌 `google-services.json` → `android/app/`  
+> 📌 `GoogleService-Info.plist` → `ios/Runner/`  
+> 📌 `firebase_options.dart` → `lib/` *(auto-generated)*
 
 **4. Run the app**
-
 ```bash
-flutter run                  # Default connected device
+# Any connected device
+flutter run
+
+# Specific platform
 flutter run -d chrome        # Web
-flutter run -d android       # Android
+flutter run -d android       # Android  
 flutter run -d ios           # iOS
+flutter run -d windows       # Windows
 ```
 
 ---
 
-## 🧪 Running Tests
+## 🧪 Testing
 
 ```bash
+# Run all tests
 flutter test
+
+# Run with coverage report
 flutter test --coverage
+
+# Analyse code
+flutter analyze
 ```
 
 ---
@@ -199,71 +329,118 @@ flutter test --coverage
 ## 📦 Build
 
 ```bash
-flutter build apk --release          # Android APK
-flutter build appbundle --release    # Android App Bundle
-flutter build ios --release          # iOS
-flutter build web --release          # Web
-flutter build windows --release      # Windows
+flutter build apk --release           # Android APK
+flutter build appbundle --release     # Android App Bundle (Play Store)
+flutter build ios --release           # iOS (App Store)
+flutter build web --release           # Web
+flutter build windows --release       # Windows desktop
 ```
 
 ---
 
 ## 🔥 Firebase Setup
 
-1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-2. Enable **Authentication** — Email/Password, Google, Facebook
-3. Enable **Cloud Firestore** — product catalogue, orders, user data
-4. Enable **Firebase Storage** — product images & user avatars
-5. Run `flutterfire configure` to sync all platform configs
+1. Go to [Firebase Console](https://console.firebase.google.com) and create a new project
+2. Enable the following services:
+
+| Service | Usage |
+|---|---|
+| **Authentication** | Email/Password · Google · Facebook |
+| **Cloud Firestore** | Products · Orders · Users · Addresses |
+| **Firebase Storage** | Product images · User avatars |
+| **Analytics** | User behaviour & funnel tracking |
+
+3. Run `flutterfire configure` — this auto-generates `firebase_options.dart`
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] Complete UI design for all screens
-- [x] Onboarding flow (3 slides)
+#### ✅ Phase 1 — UI Complete
+- [x] Onboarding flow (3 illustrated slides)
 - [x] Sign In & Sign Up screens
-- [x] Home, Store, Wishlist, Profile (bottom nav)
-- [x] Product Details, Cart & Checkout screens
-- [x] Payment Success screen
-- [ ] Firebase Auth integration (email + social)
-- [ ] Firestore product catalogue
-- [ ] Cart & order management with Firestore
-- [ ] PayPal payment gateway
+- [x] Home feed with search, categories & banner
+- [x] Store with Men / Women / Accessories / Gift Cards tabs
+- [x] Product Detail screen (gallery, sizes, colours, ratings)
+- [x] Cart with quantity management
+- [x] Order Review (promo, pricing, address, payment)
+- [x] Payment Success confirmation
+- [x] Wishlist screen
+- [x] Profile & Account settings screen
+
+#### 🔧 Phase 2 — Firebase Backend (In Progress)
+- [ ] Firebase Auth — email/password + Google + Facebook
+- [ ] Firestore — product catalogue & categories
+- [ ] Firestore — user profiles & addresses
+- [ ] Firestore — cart & order management
+- [ ] Firebase Storage — product images
+- [ ] PayPal payment gateway integration
+
+#### 🔮 Phase 3 — Advanced Features
 - [ ] Push notifications
+- [ ] Order real-time tracking
 - [ ] Geolocation-based recommendations
+- [ ] Multi-language support
+- [ ] Product reviews & ratings system
+- [ ] Admin dashboard
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork the project
-2. Create your branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m 'Add your feature'`
-4. Push to branch: `git push origin feature/your-feature`
-5. Open a Pull Request
+Contributions are welcome! Here's how:
+
+```bash
+# 1. Fork & clone
+git clone https://github.com/The-Prabhath/veon-app.git
+
+# 2. Create a feature branch
+git checkout -b feature/your-feature-name
+
+# 3. Commit changes
+git commit -m "feat: add your feature"
+
+# 4. Push & open a PR
+git push origin feature/your-feature-name
+```
+
+Please follow the existing feature-first folder structure and keep controllers, models, and screens separated within each feature module.
 
 ---
 
 ## 👤 Author
 
+<div align="center">
+
 **Kavindu Prabhath**
 
-- GitHub: [@The-Prabhath](https://github.com/The-Prabhath)
-- Email: kavinduprabathkp@gmail.com
+[![GitHub](https://img.shields.io/badge/GitHub-@The--Prabhath-181717?style=for-the-badge&logo=github)](https://github.com/The-Prabhath)
+[![Email](https://img.shields.io/badge/Email-kavinduprabathkp@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kavinduprabathkp@gmail.com)
+
+</div>
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+```
+MIT License — Copyright (c) 2024 Kavindu Prabhath
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction...
+```
+
+See the full [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
 
-Made with ❤️ and Flutter
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,50:4f46e5,100:1a1a2e&height=120&section=footer" width="100%"/>
 
-⭐ Star this repo if you found it helpful!
+**Built with ❤️ using Flutter**
+
+⭐ If you found this project helpful, please give it a star!
 
 </div>
