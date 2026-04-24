@@ -196,13 +196,6 @@ Contributions, issues, and feature requests are welcome!
 
 - GitHub: [@The-Prabhath](https://github.com/The-Prabhath)
 
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
 
 <div align="center">
 
