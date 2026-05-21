@@ -21,7 +21,8 @@
 <br/>
 
 ![UI](https://img.shields.io/badge/UI%20%2F%20Frontend-✅%20Complete-22c55e?style=flat-square)
-![Backend](https://img.shields.io/badge/Firebase%20Backend-🔧%20In%20Progress-f59e0b?style=flat-square)
+![Backend](https://img.shields.io/badge/Firebase%20Backend-✅%20Complete-22c55e?style=flat-square)
+![Status](https://img.shields.io/badge/Project%20Status-✅%20Fully%20Complete-22c55e?style=flat-square)
 ![Type](https://img.shields.io/badge/Type-University%20Assignment-6366f1?style=flat-square)
 
 <br/>
@@ -49,16 +50,16 @@
 
 ## 🌟 Overview
 
-**VEON** is a cross-platform fashion e-commerce mobile application developed as a **university module assignment**. Built with **Flutter** and **GetX**, it follows a production-grade **feature-first clean architecture** with a full separation of `controllers`, `models`, and `screens` per feature domain.
+**VEON** is a cross-platform fashion e-commerce mobile application developed as a **university module assignment**. Built with **Flutter** and **GetX**, it follows a production-grade **feature-first clean architecture** with full separation of `controllers`, `models`, and `screens` per feature domain.
 
-The app delivers a premium end-to-end shopping experience — from an illustrated onboarding flow, through product browsing and wishlist management, to a full checkout pipeline with order review and payment confirmation. The UI is fully complete and the **Firebase backend integration is currently in progress**.
+The app delivers a premium end-to-end shopping experience — from an illustrated onboarding flow, through product browsing, search, and wishlist management, to a full checkout pipeline with order review and payment confirmation. Both the **UI and Firebase backend are fully complete**, including real-time Firestore data, Firebase Auth (email/password + Google OAuth), order management, address management, and cloud-synced user profiles.
 
 ---
 
 ## 🖼️ App Screens
 
 <details>
-<summary><b>🚀 Onboarding  (3 Slides)</b></summary>
+<summary><b>🚀 Onboarding (3 Slides)</b></summary>
 <br/>
 
 | # | Screen | Description |
@@ -77,22 +78,33 @@ Each slide has a **Skip** button and a **Next arrow** with dot indicators.
 
 | Screen | Elements |
 |---|---|
-| **Sign In** | VEON logo · Email & password fields · Remember Me · Forgot Password · Sign In button · Google & Facebook OAuth |
-| **Sign Up** | First & Last name · Username · Email · Phone number · Password · Terms & Privacy checkbox · Create Account button · Google & Facebook OAuth |
-| **Password Configuration** | Forgot password / reset flow |
+| **Sign In** | VEON logo · Email & password fields · Remember Me · Forgot Password · Sign In button · Google OAuth |
+| **Sign Up** | First & Last name · Username · Email · Phone number · Password · Terms & Privacy checkbox · Create Account button · Google OAuth |
+| **Forgot Password** | Email entry · password reset link flow |
+| **Reset Password** | Confirmation screen with resend option |
 
 </details>
 
 <details>
-<summary><b>🏠 Core Screens  (Bottom Navigation)</b></summary>
+<summary><b>🏠 Core Screens (Bottom Navigation)</b></summary>
 <br/>
 
 | Screen | Key Elements |
 |---|---|
-| **Home** | Personalised greeting · Search bar · Category icons (T-Shirt, Pants, Shoes, Accessories, Dress) · Featured banner carousel · Popular Products grid |
-| **Store** | Tab filters: Men · Women · Accessories · Gift Cards · Product grid with 25% discount badges · Wishlist heart per card · Add to cart |
+| **Home** | Personalised greeting · Search bar · Category icons · Featured banner carousel (Firestore-driven) · Popular Products grid |
+| **Store** | Tab filters by category · Brand showcase · Product grid with discount badges · Wishlist heart per card · Add to cart |
 | **Wishlist** | Saved products grid · Heart toggle · Quick add-to-cart per item |
-| **Profile / Account** | User avatar & name · My Addresses · My Cart · My Orders · Bank Account · My Coupons · Notifications · Account Privacy · Firebase Cloud Sync · Geolocation toggle |
+| **Profile / Account** | User avatar & name · My Addresses · My Cart · My Orders · My Coupons · Notifications · Account Privacy · Firebase Cloud Sync · Settings |
+
+</details>
+
+<details>
+<summary><b>🔍 Search</b></summary>
+<br/>
+
+| Screen | Key Elements |
+|---|---|
+| **Search** | Live search input · Filtered product results · Product cards with add-to-cart |
 
 </details>
 
@@ -102,10 +114,37 @@ Each slide has a **Skip** button and a **Next arrow** with dot indicators.
 
 | Screen | Key Elements |
 |---|---|
-| **Product Details** | Multi-angle image gallery (4 thumbnails) · Star rating & review count · Original & discounted price · Discount badge · Colour picker · Size selector (S / M / L / XL / XXL) · In Stock status · Quantity stepper · Add to Cart |
-| **Cart** | Item list with thumbnail · Colour & size summary · Quantity ± controls · Per-item price · Checkout CTA button |
-| **Order Review** | Item summary · Promo code input · Subtotal / Shipping Fee / Tax / Total breakdown · Payment mode (PayPal) · Shipping address with change option · Checkout CTA |
-| **Payment Success** | Animated green badge · "Payment Success!" heading · Shipping confirmation · Continue button |
+| **Product Details** | Multi-angle image slider · Star rating & review count · Original & discounted price · Discount badge · Colour picker · Size selector (S / M / L / XL / XXL) · Variation-based pricing · In Stock status · Quantity stepper · Add to Cart |
+| **Cart** | Item list with thumbnail · Colour & size summary · Quantity ± controls · Per-item price · Checkout CTA |
+| **Checkout / Order Review** | Item summary · Coupon code input · Subtotal / Shipping Fee / Tax / Total breakdown · Payment method · Billing address with change option · Place Order CTA |
+| **Payment Success** | Animated success badge · "Your Order is Being Processed" confirmation · Continue Shopping button |
+
+</details>
+
+<details>
+<summary><b>📦 Orders & Brands</b></summary>
+<br/>
+
+| Screen | Key Elements |
+|---|---|
+| **My Orders** | Live order list from Firestore · Order status badges · Itemised order details |
+| **All Brands** | Brand grid with product counts · Tap to view brand-specific products |
+| **Brand Products** | Filtered product listing by brand |
+| **Sub Categories** | Category-filtered horizontal product sections |
+| **All Products** | Sortable full product listing |
+| **Product Reviews** | Star rating breakdown · Progress bars · User review cards |
+
+</details>
+
+<details>
+<summary><b>👤 Profile & Personalization</b></summary>
+<br/>
+
+| Screen | Key Elements |
+|---|---|
+| **Profile** | Editable user details · Profile image · Name, username, email, phone, DOB, gender |
+| **Addresses** | Saved address list · Add new address form · Set default address |
+| **Settings** | Dark/Light mode · Geolocation toggle · Firebase cloud sync · Account Privacy · Logout |
 
 </details>
 
@@ -116,22 +155,29 @@ Each slide has a **Skip** button and a **Next arrow** with dot indicators.
 | Category | Features |
 |---|---|
 | **Onboarding** | 3-step illustrated slideshow · Skip & Next navigation · Dot indicators |
-| **Auth** | Email/password sign-in & sign-up · Remember Me · Forgot password · Google OAuth · Facebook OAuth |
-| **Home** | Personalised greeting · Category quick-access · Banner carousel · Popular products section |
-| **Store** | Men / Women / Accessories / Gift Cards tabs · Discount badges · Add to wishlist |
-| **Product** | Multi-image gallery · Ratings · Colour & size variants · Stock status · Quantity control |
-| **Cart** | Add / remove items · Quantity management · Live total calculation |
-| **Checkout** | Promo code · Itemised cost (subtotal + shipping + tax) · Payment method · Saved address |
-| **Orders** | In-progress and completed order tracking |
-| **Profile** | Address management · Coupon list · Bank account · Notification settings · Privacy controls |
-| **App Settings** | Firebase cloud sync · Geolocation toggle |
+| **Auth** | Email/password sign-in & sign-up · Remember Me · Forgot & reset password · Google OAuth · Form validation · Custom Firebase exception handling |
+| **Home** | Personalised greeting · Category quick-access · Firestore-powered banner carousel · Popular products section |
+| **Store** | Category tab filters · Brand showcase · Discount badges · Add to wishlist |
+| **Search** | Live search with real-time filtering · Product results grid |
+| **Product** | Multi-image slider · Ratings · Colour & size variants · Variation-based pricing & stock · Quantity control |
+| **Cart** | Add / remove items · Quantity management · Live total calculation · Persistent via GetStorage |
+| **Checkout** | Coupon/promo code · Itemised cost (subtotal + shipping + tax) · Payment method · Saved address selection |
+| **Orders** | Firestore-backed order creation · Order list with status tracking · In-progress and completed orders |
+| **Wishlist** | Toggle wishlist per product · Persistent wishlist state |
+| **Brands** | Brand listing · Brand-specific product filtering |
+| **Sub Categories** | Category-based product exploration |
+| **Profile** | Full profile editing · Profile image update via Firebase Storage |
+| **Addresses** | Add / edit / delete addresses · Default address selection · Firestore-synced |
+| **App Settings** | Light & dark theme · Firebase cloud sync · Geolocation toggle · Account privacy |
+| **Error Handling** | Custom exceptions for Firebase Auth, Firestore, Platform & Format errors |
+| **Network** | Network connectivity manager with offline detection |
 | **Platform** | Android · iOS · Web · Windows · macOS · Linux |
 
 ---
 
 ## 🏗️ Architecture
 
-VEON uses a **Feature-First Clean Architecture** with **GetX** for state management, dependency injection (via `bindings/`), and routing. Each feature module is fully self-contained.
+VEON uses a **Feature-First Clean Architecture** with **GetX** for state management, dependency injection (via `bindings/`), and routing. Each feature module is fully self-contained with its own controllers, models, and screens.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -142,13 +188,20 @@ VEON uses a **Feature-First Clean Architecture** with **GetX** for state managem
 │   │            │   │            │   │                        │  │
 │   │ GetX DI &  │   │  styles/   │   │ constants  · device    │  │
 │   │  routing   │   │  widgets/  │   │ formatters · helpers   │  │
-│   └────────────┘   └────────────┘   │ http       · logging   │  │
+│   └────────────┘   └────────────┘   │ exceptions · network  │  │
 │                                     │ local_storage · theme  │  │
-│   ┌────────────┐                    │ validators             │  │
-│   │    DATA    │                    └────────────────────────┘  │
-│   │            │                                                 │
+│   ┌────────────┐                    │ validators · popups    │  │
+│   │    DATA    │                    │ logging    · http      │  │
+│   │            │                    └────────────────────────┘  │
 │   │ repos/     │                                                 │
-│   │ services/  │                                                 │
+│   │  ├─ auth   │                                                 │
+│   │  ├─ user   │                                                 │
+│   │  ├─ address│                                                 │
+│   │  ├─ product│                                                 │
+│   │  ├─ brand  │                                                 │
+│   │  ├─ category                                                 │
+│   │  ├─ banner │                                                 │
+│   │  └─ orders │                                                 │
 │   └────────────┘                                                 │
 │                                                                  │
 │   ┌──────────────────────────────────────────────────────────┐   │
@@ -156,32 +209,33 @@ VEON uses a **Feature-First Clean Architecture** with **GetX** for state managem
 │   │                                                          │   │
 │   │  ┌──────────────────────┐  ┌───────────────────────┐   │   │
 │   │  │   AUTHENTICATION     │  │   PERSONALIZATION     │   │   │
-│   │  │                      │  │                       │   │   │
-│   │  │ controllers/         │  │ controllers/          │   │   │
-│   │  │  └─ onboarding/      │  │ models/               │   │   │
-│   │  │ models/              │  │ screens/              │   │   │
-│   │  │ screens/             │  │  ├─ address/          │   │   │
-│   │  │  ├─ login/           │  │  ├─ profile/          │   │   │
-│   │  │  ├─ onboarding/      │  │  └─ settings/         │   │   │
-│   │  │  ├─ password_config/ │  └───────────────────────┘   │   │
-│   │  │  └─ signup/          │                               │   │
-│   │  └──────────────────────┘                               │   │
-│   │                                                          │   │
+│   │  │  controllers/        │  │  controllers/         │   │   │
+│   │  │   ├─ login/          │  │   ├─ user_controller  │   │   │
+│   │  │   ├─ signup/         │  │   └─ address_ctrl     │   │   │
+│   │  │   └─ onboarding/     │  │  models/              │   │   │
+│   │  │  screens/            │  │   ├─ user_model       │   │   │
+│   │  │   ├─ login/          │  │   └─ address_model    │   │   │
+│   │  │   ├─ signup/         │  │  screens/             │   │   │
+│   │  │   ├─ onboarding/     │  │   ├─ address/         │   │   │
+│   │  │   └─ password_config/│  │   ├─ profile/         │   │   │
+│   │  └──────────────────────┘  │   └─ settings/        │   │   │
+│   │                            └───────────────────────┘   │   │
 │   │  ┌──────────────────────────────────────────────────┐   │   │
 │   │  │                      SHOP                        │   │   │
-│   │  │                                                  │   │   │
-│   │  │  controllers/   models/   screens/               │   │   │
-│   │  │                           ├─ all_products/       │   │   │
-│   │  │                           ├─ brand/              │   │   │
-│   │  │                           ├─ cart/               │   │   │
-│   │  │                           ├─ checkout/           │   │   │
-│   │  │                           ├─ home/               │   │   │
-│   │  │                           ├─ order/              │   │   │
-│   │  │                           ├─ product_details/    │   │   │
-│   │  │                           ├─ product_reviews/    │   │   │
-│   │  │                           ├─ store/              │   │   │
-│   │  │                           ├─ sub_category/       │   │   │
-│   │  │                           └─ wishlist/           │   │   │
+│   │  │  controllers/                                    │   │   │
+│   │  │   ├─ banner · brand · category · home            │   │   │
+│   │  │   ├─ cart · checkout · order · wishlist          │   │   │
+│   │  │   ├─ store · search                              │   │   │
+│   │  │   └─ product/ (product + variation)              │   │   │
+│   │  │  models/                                         │   │   │
+│   │  │   ├─ banner · brand · category · product         │   │   │
+│   │  │   ├─ product_attribute · product_variation       │   │   │
+│   │  │   ├─ cart_item · order                           │   │   │
+│   │  │  screens/                                        │   │   │
+│   │  │   ├─ home · store · search · wishlist            │   │   │
+│   │  │   ├─ all_products · brand · sub_category         │   │   │
+│   │  │   ├─ product_details · product_reviews           │   │   │
+│   │  │   ├─ cart · checkout · order                     │   │   │
 │   │  └──────────────────────────────────────────────────┘   │   │
 │   └──────────────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────┘
@@ -204,85 +258,128 @@ veon-app/
 │
 └── lib/
     │
-    ├── bindings/                     # GetX dependency injection bindings
+    ├── app.dart                      # Root app widget
+    ├── main.dart                     # App entry point
+    ├── navigation_menu.dart          # Bottom navigation controller
+    ├── firebase_options.dart         # Firebase config (auto-generated)
+    │
+    ├── bindings/
+    │   └── general_bindings.dart     # GetX global DI bindings
     │
     ├── common/
     │   ├── styles/
     │   │   ├── rounded_container.dart
     │   │   ├── shadows.dart
     │   │   └── spacing_styles.dart
-    │   └── widgets/                  # Global reusable widgets
-    │       ├── appbar/
-    │       ├── brand/
-    │       ├── chips/
-    │       ├── custom_shapes/
-    │       ├── icons/
-    │       ├── image_text_widgets/
-    │       ├── images/
-    │       ├── layouts/
-    │       ├── list_tiles/
-    │       ├── login_signup/
+    │   └── widgets/
+    │       ├── appbar/               # Custom AppBar & TabBar
+    │       ├── brand/                # BrandCard, BrandShowCase
+    │       ├── chips/                # ChoiceChip
+    │       ├── custom_shapes/        # Containers & curved edges
+    │       ├── icons/                # Circular icon button
+    │       ├── images/               # Circular & rounded images
+    │       ├── image_text_widgets/   # Vertical image+text
+    │       ├── layouts/              # GridLayout
+    │       ├── list_tiles/           # SettingsMenuTile, UserProfileTile
+    │       ├── loaders/              # AnimationLoader, CircularLoader
+    │       ├── login_signup/         # FormDivider, SocialButtons
     │       ├── products/
-    │       ├── success_screen/
-    │       └── texts/
+    │       │   ├── cart/             # AddRemoveButton, CartItem, CartMenuIcon, CouponWidget
+    │       │   ├── product_cards/    # ProductCardVertical, ProductCardHorizontal
+    │       │   ├── ratings/          # RatingIndicator
+    │       │   └── sortable/         # SortableProducts
+    │       ├── success_screen/       # SuccessScreen
+    │       └── texts/                # PriceText, TitleText, SectionHeading, BrandTitle
     │
     ├── data/
-    │   ├── repositories/             # Data access layer
-    │   └── services/                 # External service integrations
+    │   └── repositories/
+    │       ├── authentication/       # AuthenticationRepository
+    │       ├── user/                 # UserRepository
+    │       ├── address/              # AddressRepository
+    │       ├── products/             # ProductRepository
+    │       ├── brands/               # BrandRepository
+    │       ├── categories/           # CategoryRepository
+    │       ├── banners/              # BannerRepository
+    │       └── orders/               # OrderRepository
     │
     ├── features/
     │   │
-    │   ├── authentication/           # 🔐 Auth feature
+    │   ├── authentication/
     │   │   ├── controllers/
-    │   │   │   └── onboarding/
-    │   │   ├── models/
+    │   │   │   ├── login/            # LoginController
+    │   │   │   ├── signup/           # SignupController
+    │   │   │   └── onboarding/       # OnboardingController + widgets
     │   │   └── screens/
-    │   │       ├── login/
-    │   │       ├── onboarding/
-    │   │       ├── password_configuration/
-    │   │       └── signup/
+    │   │       ├── login/            # LoginScreen + LoginForm + LoginHeader
+    │   │       ├── signup/           # SignupScreen + SignupForm + TermsCheckbox
+    │   │       ├── onboarding/       # OnboardingScreen
+    │   │       └── password_configuration/  # ForgetPassword + ResetPassword
     │   │
-    │   ├── personalization/          # 👤 User profile feature
+    │   ├── personalization/
     │   │   ├── controllers/
+    │   │   │   ├── user_controller.dart
+    │   │   │   └── address_controller.dart
     │   │   ├── models/
+    │   │   │   ├── user_model.dart
+    │   │   │   └── address_model.dart
     │   │   └── screens/
-    │   │       ├── address/
-    │   │       ├── profile/
-    │   │       └── settings/
+    │   │       ├── address/          # AddressScreen + AddNewAddress + SingleAddress
+    │   │       ├── profile/          # ProfileScreen + ProfileMenu
+    │   │       └── settings/         # SettingsScreen
     │   │
-    │   └── shop/                     # 🛍️ Core shop feature
+    │   └── shop/
     │       ├── controllers/
+    │       │   ├── banner_controller.dart
+    │       │   ├── brand_controller.dart
+    │       │   ├── cart_controller.dart
+    │       │   ├── category_controller.dart
+    │       │   ├── checkout_controller.dart
+    │       │   ├── home_controller.dart
+    │       │   ├── order_controller.dart
+    │       │   ├── search_controller.dart
+    │       │   ├── store_controller.dart
+    │       │   ├── wishlist_controller.dart
+    │       │   └── product/
+    │       │       ├── product_controller.dart
+    │       │       └── variation_controller.dart
     │       ├── models/
+    │       │   ├── banner_model.dart
+    │       │   ├── brand_model.dart
+    │       │   ├── cart_item_model.dart
+    │       │   ├── category_model.dart
+    │       │   ├── order_model.dart
+    │       │   ├── product_model.dart
+    │       │   ├── product_attribute_model.dart
+    │       │   └── product_variation_model.dart
     │       └── screens/
-    │           ├── all_products/
-    │           ├── brand/
-    │           ├── cart/
-    │           ├── checkout/
-    │           ├── home/
-    │           ├── order/
-    │           ├── product_details/
-    │           ├── product_reviews/
-    │           ├── store/
-    │           ├── sub_category/
-    │           └── wishlist/
+    │           ├── home/             # HomeScreen + HomeAppbar + HomeCategories + PromoSlider
+    │           ├── store/            # StoreScreen + CategoryTab
+    │           ├── search/           # SearchScreen
+    │           ├── wishlist/         # WishlistScreen
+    │           ├── all_products/     # AllProductsScreen
+    │           ├── brand/            # AllBrandsScreen + BrandProductsScreen
+    │           ├── sub_category/     # SubCategoriesScreen
+    │           ├── product_details/  # ProductDetail + ImageSlider + MetaData + Attributes + BottomCart + RatingShare
+    │           ├── product_reviews/  # ProductReviews + UserReviewCard + RatingProgressIndicator
+    │           ├── cart/             # CartScreen + CartItems
+    │           ├── checkout/         # CheckoutScreen + BillingAddress + BillingAmount + BillingPayment
+    │           └── order/            # OrderScreen + OrderList
     │
     ├── localization/                 # 🌍 Multi-language support
     │
-    ├── utils/
-    │   ├── constants/                # App-wide constants
-    │   ├── device/                   # Device utility helpers
-    │   ├── formatters/               # Date, currency formatters
-    │   ├── helpers/                  # General helper functions
-    │   ├── http/                     # HTTP client utilities
-    │   ├── local_storage/            # Local persistence (GetStorage)
-    │   ├── logging/                  # App logging
-    │   ├── theme/                    # Light & dark theme config
-    │   └── validators/               # Form input validators
-    │
-    ├── app.dart                      # Root app widget
-    ├── firebase_options.dart         # Firebase config (auto-generated)
-    ├── main.dart                     # App entry point
-    └── navigation_menu.dart          # Bottom navigation controller
+    └── utils/
+        ├── constants/                # colors · sizes · text_strings · image_strings · enums · api_constants
+        ├── device/                   # DeviceUtility
+        ├── exceptions/               # Custom Firebase, Auth, Format, Platform exceptions
+        ├── formatters/               # Formatter (date, phone, currency)
+        ├── helpers/                  # HelperFunctions, PricingCalculator
+        ├── http/                     # HttpClient
+        ├── local_storage/            # StorageUtility (GetStorage)
+        ├── logging/                  # Logger
+        ├── network/                  # NetworkManager
+        ├── popups/                   # Loaders, FullScreenLoader
+        ├── theme/                    # Light & Dark theme + custom sub-themes
+        └── validators/               # Validation (email, phone, password)
 ```
 
 ---
@@ -295,12 +392,13 @@ veon-app/
 | **Language** | Dart | Business logic & UI code |
 | **State Management** | GetX | Reactive state, routing & DI |
 | **Dependency Injection** | GetX Bindings | Controller lifecycle management |
-| **Authentication** | Firebase Auth | Email/password · Google · Facebook |
-| **Database** | Cloud Firestore | Products, orders, users, addresses |
+| **Authentication** | Firebase Auth | Email/password · Google OAuth |
+| **Database** | Cloud Firestore | Products, orders, users, addresses, banners, brands, categories |
 | **File Storage** | Firebase Storage | Product images & user avatars |
-| **Local Storage** | GetStorage | Persistent local preferences |
-| **HTTP Client** | Dart HTTP / Dio | API communication layer |
-| **Payments** | PayPal | Checkout payment processing |
+| **Local Storage** | GetStorage | Persistent local preferences & cart |
+| **HTTP Client** | Dart HTTP | API communication layer |
+| **Network** | NetworkManager | Connectivity detection & handling |
+| **Error Handling** | Custom Exceptions | Firebase Auth, Firestore, Platform & Format exceptions |
 | **Localisation** | Flutter i18n | Multi-language support |
 | **Config** | firebase_options.dart | Multi-platform Firebase config |
 
@@ -396,12 +494,24 @@ flutter build macos --release
 | Step | Action |
 |---|---|
 | 1 | Create a project at [console.firebase.google.com](https://console.firebase.google.com) |
-| 2 | Enable **Authentication** — Email/Password · Google · Facebook |
-| 3 | Enable **Cloud Firestore** — products, orders, users, addresses |
+| 2 | Enable **Authentication** — Email/Password · Google |
+| 3 | Enable **Cloud Firestore** — products, orders, users, addresses, banners, brands, categories |
 | 4 | Enable **Firebase Storage** — product images, user avatars |
 | 5 | Run `flutterfire configure` to sync all platform configs |
 
-> The `firebase_options.dart` file is auto-generated and should not be committed with real credentials. Add it to `.gitignore` or use environment secrets in CI/CD.
+### Firestore Collections
+
+| Collection | Purpose |
+|---|---|
+| `Users` | User profiles & account data |
+| `Users/{id}/Addresses` | Per-user saved addresses |
+| `Users/{id}/Orders` | Per-user order history |
+| `Products` | Product catalogue with variants & attributes |
+| `Categories` | Product category hierarchy |
+| `Brands` | Brand listing with image & product count |
+| `Banners` | Home screen promotional banners |
+
+> ⚠️ The `firebase_options.dart` file is auto-generated and should not be committed with real credentials. Add it to `.gitignore` or use environment secrets in CI/CD.
 
 ---
 
@@ -411,33 +521,42 @@ flutter build macos --release
 - [x] Onboarding flow (3 illustrated slides)
 - [x] Sign In screen with OAuth buttons
 - [x] Sign Up screen with full registration form
-- [x] Password configuration / reset screen
+- [x] Forgot Password & Reset Password screens
 - [x] Home feed — greeting, categories, banner, popular products
-- [x] Store — tab-filtered product grid with discounts
+- [x] Store — tab-filtered product grid with discounts & brands
+- [x] Search screen with live filtering
 - [x] Product Details — gallery, variants, ratings, add to cart
 - [x] Cart — quantity management & pricing
-- [x] Order Review — promo code, cost breakdown, address, payment
+- [x] Checkout / Order Review — coupon, cost breakdown, address, payment
 - [x] Payment Success confirmation screen
 - [x] Wishlist screen
+- [x] All Products, All Brands, Brand Products screens
+- [x] Sub Categories screen
+- [x] Product Reviews screen
+- [x] Orders screen
 - [x] Profile & Account settings screen
 - [x] Address, Profile & Settings sub-screens
 
-### 🔧 Phase 2 — Firebase Backend (In Progress)
-- [ ] Firebase Auth — email/password login & registration
-- [ ] Firebase Auth — Google & Facebook OAuth
-- [ ] Firestore — product catalogue & categories
-- [ ] Firestore — user profile & address management
-- [ ] Firestore — cart persistence & order management
-- [ ] Firebase Storage — product image hosting
-- [ ] PayPal payment gateway integration
+### ✅ Phase 2 — Firebase Backend Complete
+- [x] Firebase Auth — email/password login & registration
+- [x] Firebase Auth — Google OAuth
+- [x] Firestore — product catalogue with variants & attributes
+- [x] Firestore — category & brand management
+- [x] Firestore — banner / promo slider data
+- [x] Firestore — user profile & address management
+- [x] Firestore — cart persistence & order management
+- [x] Firebase Storage — product image hosting & user avatars
+- [x] Custom Firebase & platform exception handling
+- [x] Network connectivity detection & management
 
 ### 🔮 Phase 3 — Planned Enhancements
 - [ ] Push notifications (FCM)
 - [ ] Real-time order tracking
 - [ ] Product reviews & rating submission
 - [ ] Geolocation-based recommendations
-- [ ] Full multi-language support
-- [ ] Sub-category & brand filtering
+- [ ] Full multi-language support (localization/)
+- [ ] PayPal payment gateway integration
+- [ ] Facebook OAuth
 
 ---
 
@@ -460,7 +579,7 @@ flutter build macos --release
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4338ca,50:312e81,100:0f0f0f&height=130&section=footer" width="100%"/>
 
-**Built with ❤️ using Flutter & GetX**
+**Built with ❤️ using Flutter & Firebase**
 
 ⭐ *If you found this project helpful, please consider giving it a star!*
 
