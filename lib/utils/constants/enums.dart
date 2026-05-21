@@ -16,3 +16,6 @@ enum PaymentMethods {
   razorPay,
   paytm
 }
+
+/// Product type: simple (no variations) or variable (has size/color/etc.)
+enum ProductType { simple, variable }

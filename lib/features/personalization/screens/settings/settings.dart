@@ -6,14 +6,14 @@ import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_c
 import 'package:t_store/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:t_store/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
-
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
 import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/features/shop/screens/order/order.dart';
-
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -28,7 +28,6 @@ class SettingsScreen extends StatelessWidget {
             TPrimaryHeaderContainer(
               child: Column(
                 children: [
-                  /// 🔸 AppBar
                   AppBar(
                     automaticallyImplyLeading: false,
                     title: Text(
@@ -39,12 +38,9 @@ class SettingsScreen extends StatelessWidget {
                           .apply(color: TColors.white),
                     ),
                   ),
-
-                  /// 🔸 User Profile
                   TUserProfileTile(
                     onPressed: () => Get.to(() => const ProfileScreen()),
                   ),
-
                   const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
@@ -55,7 +51,7 @@ class SettingsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  /// -- Account Settings
+                  /// Account Settings
                   const TSectionHeading(
                     title: 'Account Settings',
                     showActionButton: false,
@@ -68,7 +64,6 @@ class SettingsScreen extends StatelessWidget {
                     subTitle: 'Set shopping delivery address',
                     onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
-
                   TSettingsMenuTile(
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
@@ -102,7 +97,7 @@ class SettingsScreen extends StatelessWidget {
                     subTitle: 'Manage data usage and connected accounts',
                   ),
 
-                  /// -- App Settings
+                  /// App Settings
                   const SizedBox(height: TSizes.spaceBtwSections),
                   const TSectionHeading(
                     title: 'App Settings',
@@ -115,53 +110,68 @@ class SettingsScreen extends StatelessWidget {
                     title: 'Load Data',
                     subTitle: 'Upload Data to your Cloud Firebase',
                   ),
-
                   TSettingsMenuTile(
                     icon: Iconsax.location,
                     title: 'Geolocation',
                     subTitle: 'Set recommendation based on location',
-                    trailing: Switch(
-                      value: true,
-                      onChanged: (value) {},
-                    ),
+                    trailing: Switch(value: true, onChanged: (value) {}),
                   ),
-
                   TSettingsMenuTile(
                     icon: Iconsax.security_user,
                     title: 'Safe Mode',
                     subTitle: 'Search result is safe for all ages',
-                    trailing: Switch(
-                      value: false,
-                      onChanged: (value) {},
-                    ),
+                    trailing: Switch(value: false, onChanged: (value) {}),
                   ),
-
                   TSettingsMenuTile(
                     icon: Iconsax.image,
                     title: 'HD Image Quality',
                     subTitle: 'Set image quality to be seen',
-                    trailing: Switch(
-                      value: false,
-                      onChanged: (value) {},
-                    ),
+                    trailing: Switch(value: false, onChanged: (value) {}),
                   ),
 
-                  /// -- Logout Button
+                  /// ✅ Logout Button
                   const SizedBox(height: TSizes.spaceBtwSections),
-
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () => _confirmLogout(),
                       child: const Text('Logout'),
                     ),
                   ),
-
                   const SizedBox(height: TSizes.spaceBtwSections * 2.5),
                 ],
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  void _confirmLogout() {
+    Get.defaultDialog(
+      contentPadding: const EdgeInsets.all(TSizes.md),
+      title: 'Logout',
+      middleText: 'Are you sure you want to logout?',
+      confirm: ElevatedButton(
+        onPressed: () async {
+          Get.back();
+          await AuthenticationRepository.instance.logout();
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.red,
+          side: const BorderSide(color: Colors.red),
+        ),
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: TSizes.lg),
+          child: Text('Logout', style: TextStyle(color: Colors.white)),
+        ),
+      ),
+      cancel: OutlinedButton(
+        onPressed: () => Get.back(),
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: TSizes.lg),
+          child: Text('Cancel'),
         ),
       ),
     );

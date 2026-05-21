@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:t_store/features/authentication/screens/login/login.dart';
 
 class OnBoardingController extends GetxController {
@@ -15,13 +17,23 @@ class OnBoardingController extends GetxController {
   /// Jump to the specific dot selected page.
   void dotNavigationClick(index) {
     currentPageindex.value = index;
-    pageController.jumpTo(index);
+    pageController.jumpToPage(index);
   }
 
   /// Update Current Index & jump to next page
   void nextPage() {
     if (currentPageindex.value == 2) {
-      Get.offAll(const LoginScreen());
+      final storage = GetStorage();
+
+      /// Local Storage
+      if (kDebugMode) {
+        print('================ GET STORAGE Next Button ================');
+        print(storage.read('IsFirstTime'));
+      }
+
+      storage.write('IsFirstTime', false);
+
+      Get.offAll(() => const LoginScreen());
     } else {
       int page = currentPageindex.value + 1;
       pageController.jumpToPage(page);

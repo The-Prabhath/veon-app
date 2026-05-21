@@ -1,53 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/products/cart/add_remove_button.dart';
 import 'package:t_store/common/widgets/products/cart/cart_item.dart';
 import 'package:t_store/common/widgets/texts/product_price_text.dart';
+import 'package:t_store/features/shop/controllers/cart_controller.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class TCartItems extends StatelessWidget {
-  const TCartItems({
-    super.key,
-    this.showAddRemoveButtons = true,
-  });
+  const TCartItems({super.key, this.showAddRemoveButtons = true});
 
   final bool showAddRemoveButtons;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      itemCount: 2,
-      separatorBuilder: (_, __) =>
-          const SizedBox(height: TSizes.spaceBtwSections),
-      itemBuilder: (_, index) => Column(
-        children: [
-          /// Cart Item
-          const TCartItem(),
+    final cartController = CartController.instance;
 
-          if (showAddRemoveButtons)
-            const SizedBox(height: TSizes.spaceBtwItems),
+    return Obx(() {
+      if (cartController.cartItems.isEmpty) {
+        return const Center(
+          child: Padding(
+            padding: EdgeInsets.all(32),
+            child: Text('Your cart is empty.'),
+          ),
+        );
+      }
 
-          /// Add Remove Button Row with total price
-          if (showAddRemoveButtons)
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+      return ListView.separated(
+        shrinkWrap: true,
+        itemCount: cartController.cartItems.length,
+        separatorBuilder: (_, __) =>
+            const SizedBox(height: TSizes.spaceBtwSections),
+        itemBuilder: (_, index) {
+          final item = cartController.cartItems[index];
+          return Column(
+            children: [
+              /// Cart Item row
+              TCartItem(cartItem: item),
+
+              if (showAddRemoveButtons)
+                const SizedBox(height: TSizes.spaceBtwItems),
+
+              if (showAddRemoveButtons)
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    /// Extra Space
-                    SizedBox(width: 70),
-
-                    /// Add Remove Buttons
-                    TProductQuantityWithAddRemoveButton(),
+                    Row(
+                      children: [
+                        const SizedBox(width: 70),
+                        /// + / - buttons
+                        TProductQuantityWithAddRemoveButton(
+                          quantity: item.quantity,
+                          add: () => cartController.addOneToCartItem(item),
+                          remove: () =>
+                              cartController.removeOneFromCartItem(item),
+                        ),
+                      ],
+                    ),
+                    /// Item total price
+                    TProductPriceText(
+                      price:
+                          (item.price * item.quantity).toStringAsFixed(1),
+                    ),
                   ],
                 ),
-
-                /// Product total price
-                TProductPriceText(price: '256'),
-              ],
-            ),
-        ],
-      ),
-    );
+            ],
+          );
+        },
+      );
+    });
   }
 }

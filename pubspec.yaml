@@ -17,7 +17,9 @@ dependencies:
   http: ^1.1.0
   intl: ^0.18.1
   logger: ^2.0.1
+  lottie: ^3.3.3
   url_launcher: ^6.1.12
+  connectivity_plus: ^7.1.1
   flutter_native_splash: ^2.4.7
   smooth_page_indicator: ^2.0.1
 
@@ -36,6 +38,10 @@ dependencies:
 
   #Firebase
   firebase_core: ^4.6.0
+  firebase_auth: ^6.4.0
+  cloud_firestore: ^6.3.0
+  google_sign_in: ^7.2.0
+  
 
 
 # ------------------- PACKAGES END ------------------- #

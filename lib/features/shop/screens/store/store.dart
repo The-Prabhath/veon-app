@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/appbar/tabbar.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:t_store/common/widgets/loaders/animation_loader.dart';
 import 'package:t_store/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:t_store/features/shop/controllers/category_controller.dart';
+import 'package:t_store/features/shop/controllers/store_controller.dart';
 import 'package:t_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -12,81 +16,94 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 5,
-      child: Scaffold(
-        /// 🔝 APP BAR
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text(
-            'Store',
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          actions: [
-            TCartCounterIcon(onPressed: () {}),
-            const SizedBox(width: 8),
-          ],
-        ),
+    final categoryController = CategoryController.instance;
+    final storeController = StoreController.instance;
 
-        /// 🧱 BODY
-        body: NestedScrollView(
-          headerSliverBuilder: (_, innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                automaticallyImplyLeading: false,
-                pinned: true,
-                floating: true,
-                expandedHeight: 180,
-                backgroundColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.black
-                    : TColors.white,
+    return Obx(() {
+      /// ── Loading ───────────────────────────────────────────────────────
+      if (categoryController.isLoading.value) {
+        return const Scaffold(
+          body: Center(child: CircularProgressIndicator()),
+        );
+      }
 
-                /// 🔹 HEADER
-                flexibleSpace: Padding(
-                  padding: const EdgeInsets.all(TSizes.defaultSpace),
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: const [
-                      SizedBox(height: TSizes.spaceBtwItems),
+      /// ── No categories ─────────────────────────────────────────────────
+      if (categoryController.featuredCategories.isEmpty) {
+        return const Scaffold(
+          body: Center(child: Text('No categories found')),
+        );
+      }
 
-                      /// 🔍 Search
-                      TSearchContainer(
-                        text: 'Search in Store',
-                        showBorder: true,
-                        showBackground: false,
-                        padding: EdgeInsets.zero,
-                      ),
-                    ],
-                  ),
-                ),
+      final categories = categoryController.featuredCategories;
 
-                /// 🔻 TAB BAR
-                bottom: const TTabBar(
-                  tabs: [
-                    Tab(child: Text('Men')),
-                    Tab(child: Text('Women')),
-                    Tab(child: Text('Accessories')),
-                    Tab(child: Text('Gift Cards')),
-                    Tab(child: Text('Final Sale')),
-                  ],
-                ),
-              ),
-            ];
-          },
-
-          /// 🔥 TAB CONTENT
-          body: const TabBarView(
-            children: [
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
+      return DefaultTabController(
+        length: categories.length,
+        child: Scaffold(
+          /// 🔝 APP BAR
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Text(
+              'Store',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            actions: [
+              TCartCounterIcon(onPressed: () {}),
+              const SizedBox(width: 8),
             ],
           ),
+
+          /// 🧱 BODY
+          body: NestedScrollView(
+            headerSliverBuilder: (_, innerBoxIsScrolled) {
+              return [
+                SliverAppBar(
+                  automaticallyImplyLeading: false,
+                  pinned: true,
+                  floating: true,
+                  expandedHeight: 180,
+                  backgroundColor: THelperFunctions.isDarkMode(context)
+                      ? TColors.black
+                      : TColors.white,
+
+                  /// 🔍 Search
+                  flexibleSpace: Padding(
+                    padding: const EdgeInsets.all(TSizes.defaultSpace),
+                    child: ListView(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: const [
+                        SizedBox(height: TSizes.spaceBtwItems),
+                        TSearchContainer(
+                          text: 'Search in Store',
+                          showBorder: true,
+                          showBackground: false,
+                          padding: EdgeInsets.zero,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  /// 🔻 Dynamic TAB BAR from Firestore categories
+                  bottom: TTabBar(
+                    tabs: categories
+                        .map((cat) => Tab(child: Text(cat.name)))
+                        .toList(),
+                  ),
+                ),
+              ];
+            },
+
+            /// 🔥 TAB CONTENT — one TCategoryTab per category
+            body: TabBarView(
+              children: categories.asMap().entries.map((entry) {
+                return TCategoryTab(
+                  categoryId: entry.value.id,
+                );
+              }).toList(),
+            ),
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

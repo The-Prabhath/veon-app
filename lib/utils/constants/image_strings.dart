@@ -28,6 +28,8 @@ class TImages {
       "assets/images/animations/email_verification_send.png";
   static const String verifyIllustration =
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
+  static const String successfullyRegisterAnimation =
+      "assets/images/animations/email_verification_send.png";
 
   /// -- Brand Icons
   static const String veonIcon = "assets/icons/brands/veon_dark_logo.png";
@@ -148,4 +150,6 @@ class TImages {
   static const String productImage31 =
       "assets/images/products/tennis_racket.png";
   static const String productImage32 = "assets/images/products/bedroom_bed.png";
+
+  static const String docerAnimation = "assets/images/animations/loader.json";
 }

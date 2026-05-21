@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:t_store/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -12,15 +14,20 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    THelperFunctions.isDarkMode(context);
+    final controller = SignupController.instance;
+    final dark = THelperFunctions.isDarkMode(context);
+
     return Row(
       children: [
         SizedBox(
           width: 24,
           height: 24,
-          child: Checkbox(
-            value: true,
-            onChanged: (value) {},
+          child: Obx(
+            () => Checkbox(
+              value: controller.privacyPolicy.value,
+              onChanged: (value) => controller.privacyPolicy.value =
+                  !controller.privacyPolicy.value,
+            ),
           ),
         ),
         const SizedBox(width: TSizes.spaceBtwItems),
@@ -33,22 +40,24 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 TextSpan(
-                  text: TTexts.privacyPolicy,
+                  text: '${TTexts.privacyPolicy} ',
                   style: Theme.of(context).textTheme.bodyMedium!.apply(
-                        color: TColors.primary,
+                        color: dark ? TColors.white : TColors.primary,
                         decoration: TextDecoration.underline,
+                        decorationColor: dark ? TColors.white : TColors.primary,
                       ),
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
                 TextSpan(
-                  text: ' ${TTexts.and} ',
+                  text: '${TTexts.and} ',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 TextSpan(
                   text: TTexts.termsOfUse,
                   style: Theme.of(context).textTheme.bodyMedium!.apply(
-                        color: TColors.primary,
+                        color: dark ? TColors.white : TColors.primary,
                         decoration: TextDecoration.underline,
+                        decorationColor: dark ? TColors.white : TColors.primary,
                       ),
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),

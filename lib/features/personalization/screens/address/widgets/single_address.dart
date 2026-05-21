@@ -1,85 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/styles/rounded_container.dart';
+import 'package:t_store/features/personalization/controllers/address_controller.dart';
+import 'package:t_store/features/personalization/models/address_model.dart';
+import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
-import 'package:t_store/utils/constants/colors.dart';
 
 class TSingleAddress extends StatelessWidget {
-  const TSingleAddress({
-    super.key,
-    required this.selectedAddress,
-  });
+  const TSingleAddress({super.key, required this.address});
 
-  final bool selectedAddress;
+  final AddressModel address;
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+    final controller = AddressController.instance;
 
-    return TRoundedContainer(
-      width: double.infinity,
-      showBorder: true,
-      backgroundColor: selectedAddress
-          ? TColors.primary.withOpacity(0.5)
-          : Colors.transparent,
-      borderColor: selectedAddress
-          ? Colors.transparent
-          : dark
-              ? TColors.darkerGrey
-              : TColors.grey,
-      margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
-      child: Stack(
-        children: [
-          /// Tick Icon (Top Right)
-          Positioned(
-            right: 5,
-            top: 0,
-            child: Icon(
-              selectedAddress ? Iconsax.tick_circle5 : null,
-              color: selectedAddress
-                  ? dark
-                      ? TColors.light
-                      : TColors.dark
-                  : null,
-            ),
+    return Obx(() {
+      final isSelected = controller.selectedAddress.value.id == address.id;
+      return GestureDetector(
+        onTap: () => controller.selectAddress(address),
+        child: TRoundedContainer(
+          width: double.infinity,
+          showBorder: true,
+          backgroundColor: isSelected
+              ? TColors.primary.withOpacity(0.5)
+              : Colors.transparent,
+          borderColor: isSelected
+              ? Colors.transparent
+              : dark ? TColors.darkerGrey : TColors.grey,
+          margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
+          child: Stack(
+            children: [
+              /// ✅ tick icon when selected
+              Positioned(
+                right: 5, top: 0,
+                child: Icon(
+                  isSelected ? Iconsax.tick_circle5 : null,
+                  color: isSelected
+                      ? dark ? TColors.light : TColors.dark
+                      : null,
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(TSizes.md),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// Name
+                    Text(address.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.titleLarge),
+                    const SizedBox(height: TSizes.sm / 2),
+                    /// Phone
+                    Text(address.phoneNumber,
+                        maxLines: 1, overflow: TextOverflow.ellipsis),
+                    const SizedBox(height: TSizes.sm / 2),
+                    /// Full address
+                    Text(address.formattedAddress, softWrap: true),
+                  ],
+                ),
+              ),
+
+              /// Delete button
+              Positioned(
+                right: 0, bottom: 0,
+                child: IconButton(
+                  icon: const Icon(Iconsax.trash, color: Colors.red, size: 18),
+                  onPressed: () => Get.defaultDialog(
+                    title: 'Delete Address',
+                    middleText: 'Are you sure you want to delete this address?',
+                    onConfirm: () {
+                      Get.back();
+                      controller.deleteAddress(address);
+                    },
+                    onCancel: () {},
+                  ),
+                ),
+              ),
+            ],
           ),
-
-          /// Address Content
-          Padding(
-            padding: const EdgeInsets.all(TSizes.md),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                /// Name
-                Text(
-                  'John Doe',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-
-                const SizedBox(height: TSizes.sm / 2),
-
-                /// Phone
-                const Text(
-                  '(+123) 456 7890',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-
-                const SizedBox(height: TSizes.sm / 2),
-
-                /// Address
-                const Text(
-                  '82356 Timmy Coves, South Liana, Maine, 87665, USA',
-                  softWrap: true,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
+        ),
+      );
+    });
   }
 }

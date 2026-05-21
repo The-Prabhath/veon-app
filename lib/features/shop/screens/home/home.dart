@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/shop/controllers/product/product_controller.dart';
 import 'package:t_store/features/shop/screens/all_products/all_products.dart';
 import 'package:t_store/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:t_store/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:t_store/features/shop/screens/home/widgets/promo_slider.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,6 +17,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final productController = ProductController.instance;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -26,22 +27,17 @@ class HomeScreen extends StatelessWidget {
             const TPrimaryHeaderContainer(
               child: Column(
                 children: [
-                  /// AppBar
                   THomeAppBar(),
                   SizedBox(height: TSizes.spaceBtwSections),
-
-                  /// Search Bar
                   TSearchContainer(text: 'Search in Store'),
                   SizedBox(height: TSizes.spaceBtwSections),
-
-                  /// Heading
                   Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                     child: Column(
                       children: [
                         TSectionHeading(
-                          title: 'Popular Categories',
+                          title: 'Categories',
                           showActionButton: false,
                           textColor: Colors.white,
                         ),
@@ -50,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
-                  /// Categories
+                  /// ── Real categories from Firestore ──
                   THomeCategories(),
 
                   SizedBox(height: TSizes.spaceBtwSections),
@@ -64,26 +60,35 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   /// Promo Slider
-                  const TPromoSlider(
-                    banners: [
-                      TImages.promoBanner1,
-                      TImages.promoBanner2,
-                      TImages.promoBanner3,
-                    ],
-                  ),
+                  // ✅ New — no parameters needed
+                  const TPromoSlider(),
 
                   TSectionHeading(
                     title: 'Popular Products',
                     onPressed: () => Get.to(() => const AllProducts()),
                   ),
 
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.spaceBtwItems),
 
-                  /// 🔥 Popular Products Grid
-                  TGridLayout(
-                    itemCount: 4,
-                    itemBuilder: (_, index) => const TProductCardVertical(),
-                  ),
+                  /// ── Real featured products from Firestore ──
+                  Obx(() {
+                    if (productController.isLoading.value) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
+                    if (productController.featuredProducts.isEmpty) {
+                      return const Center(
+                        child: Text('No products available'),
+                      );
+                    }
+
+                    return TGridLayout(
+                      itemCount: productController.featuredProducts.length,
+                      itemBuilder: (_, index) => TProductCardVertical(
+                        product: productController.featuredProducts[index],
+                      ),
+                    );
+                  }),
                 ],
               ),
             ),
